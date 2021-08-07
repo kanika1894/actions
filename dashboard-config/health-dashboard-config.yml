@@ -69,8 +69,16 @@ setup: |
       closedDate = pastDate.toISOString().split("T")[0];
       url = 'https://github.com/search?q='+ repos + '+is%3A'+ itemType + '+is%3Aclosed' + '+closed%3A>'+ closedDate
     }
+    else if(label === "others") {
+      url = 'https://github.com/search?q='+ repos + '+is%3A'+ itemType + '+is%3Aopen' + ' -label%3Aenhancement' + ' -label%3AP0' + ' -label%3AP1'
+    }
+    else if(label === "active") {
+      pastDate.setDate(pastDate.getDate() - 30);
+      staleDate = pastDate.toISOString().split("T")[0];
+      url = 'https://github.com/search?q=' + repos + '+is%3A' + itemType + '+is%3Aopen' + '+created%3A>'+ staleDate
+    }
     else if(label === "stale") {
-      pastDate.setDate(pastDate.getDate() - 90);
+      pastDate.setDate(pastDate.getDate() - 30);
       staleDate = pastDate.toISOString().split("T")[0];
       url = 'https://github.com/search?q=' + repos + '+is%3A' + itemType + '+is%3Aopen' + '+created%3A<'+ staleDate
     }
@@ -121,7 +129,7 @@ sections:
         value: '{{ userdata.count("pr","") }}'
         url: '{{ userdata.url("pr","") }}'
       - type: "number"
-        title: "Stale (90 days old)"
+        title: "Stale (30 days old)"
         value: '{{ userdata.count("pr","stale") }}'
         url: '{{ userdata.url("pr","stale") }}'
       - type: "number"
