@@ -102,13 +102,12 @@ sections:
         value: '{{ userdata.count("issue","") }}'
         url: '{{ userdata.url("issue","") }}'
       - type: "number"
-        title: "Stale (90 days old)"
-        value: '{{ userdata.count("issue","stale") }}'
-        url: '{{ userdata.url("issue","stale") }}'
-      - type: "number"
         title: "Closed (last 30 days)"
         value: '{{ userdata.count("issue","closed") }}'
         url: '{{ userdata.url("issue","closed") }}'
+
+  - title: "Open Issues by Priority"
+    widgets:
       - type: "number"
         title: "P0 bugs"
         value: '{{ userdata.count("issue","P0") }}'
@@ -117,6 +116,20 @@ sections:
         title: "P1 bugs"
         value: '{{ userdata.count("issue","P1") }}'
         url: '{{ userdata.url("issue","P1") }}'
+
+  - title: "Open Issues by Age"
+    widgets:
+      - type: "number"
+        title: "Ative"
+        value: '{{ userdata.count("issue","active") }}'
+        url: '{{ userdata.url("issue","active") }}'
+      - type: "number"
+        title: "Stale (90 days old)"
+        value: '{{ userdata.count("issue","stale") }}'
+        url: '{{ userdata.url("issue","stale") }}'
+
+  - title: "Enhancements"
+    widgets:
       - type: "number"
         title: "Enhancements"
         value: '{{ userdata.count("issue","enhancement") }}'
