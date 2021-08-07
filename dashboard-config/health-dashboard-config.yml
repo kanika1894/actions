@@ -101,10 +101,12 @@ sections:
         title: "Open (Excluding enhancements)"
         value: '{{ userdata.count("issue","") }}'
         url: '{{ userdata.url("issue","") }}'
+        color: 'yellow'
       - type: "number"
         title: "Closed (last 30 days)"
         value: '{{ userdata.count("issue","closed") }}'
         url: '{{ userdata.url("issue","closed") }}'
+        color: 'green'
 
   - title: "Open Issues by Priority"
     widgets:
@@ -112,21 +114,30 @@ sections:
         title: "P0 bugs"
         value: '{{ userdata.count("issue","P0") }}'
         url: '{{ userdata.url("issue","P0") }}'
+        color: 'yellow'
       - type: "number"
         title: "P1 bugs"
         value: '{{ userdata.count("issue","P1") }}'
         url: '{{ userdata.url("issue","P1") }}'
+        color: 'yellow'
+      - type: "number"
+        title: "Others"
+        value: '{{ userdata.count("issue","others") }}'
+        url: '{{ userdata.url("issue","others") }}'
+        color: 'yellow'
 
   - title: "Open Issues by Age"
     widgets:
       - type: "number"
-        title: "Ative"
+        title: "Active"
         value: '{{ userdata.count("issue","active") }}'
         url: '{{ userdata.url("issue","active") }}'
+        color: 'yellow'
       - type: "number"
         title: "Stale (90 days old)"
         value: '{{ userdata.count("issue","stale") }}'
         url: '{{ userdata.url("issue","stale") }}'
+        color: 'yellow'
 
   - title: "Enhancements"
     widgets:
@@ -141,14 +152,17 @@ sections:
         title: "Open"
         value: '{{ userdata.count("pr","") }}'
         url: '{{ userdata.url("pr","") }}'
+        color: 'yellow'
       - type: "number"
         title: "Stale (30 days old)"
         value: '{{ userdata.count("pr","stale") }}'
         url: '{{ userdata.url("pr","stale") }}'
+        color: 'yellow'
       - type: "number"
         title: "Closed (last 30 days)"
         value: '{{ userdata.count("pr","closed") }}'
         url: '{{ userdata.url("pr","closed") }}'
+        color: 'green'
 
   - title: "Details"
     widgets:
